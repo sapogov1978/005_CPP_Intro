@@ -21,13 +21,13 @@ class ClapTrap
 {
 public :
 	ClapTrap();
-	ClapTrap(std::string const name);
+	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap &target);
 	virtual ~ClapTrap();
 
 	ClapTrap &operator= (const ClapTrap &target);
 
-	void attack(std::string const &target);
+	virtual void attack(std::string const &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	void printName(void);
@@ -37,7 +37,7 @@ public :
 	unsigned int getAd(void) const;
 	std::string GetName() const;
 
-private:
+protected:
 	std::string name;
 	int hitPoint;
 	unsigned int energyPoint;

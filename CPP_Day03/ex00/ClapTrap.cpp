@@ -6,22 +6,20 @@
 /*   By: brattles <brattles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 18:01:31 by brattles          #+#    #+#             */
-/*   Updated: 2022/01/22 22:07:46 by brattles         ###   ########.fr       */
+/*   Updated: 2022/01/23 18:45:53 by brattles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void)
-{
+ClapTrap::ClapTrap(void) {
 	hitPoint = 10;
 	energyPoint = 10;
 	attackDamage = 0;
 	std::cout << "<<< ClapTrap created >>>" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name)
-{
+ClapTrap::ClapTrap(std::string name) {
 	this->name = name;
 	this->hitPoint = 10;
 	this->energyPoint = 10;
@@ -29,26 +27,20 @@ ClapTrap::ClapTrap(std::string name)
 	std::cout << "<< ClapTrap \"" << name << "\" created >>" << std::endl;
 }
 
-ClapTrap::~ClapTrap()
-{
-	if (name != "")
-	{
+ClapTrap::~ClapTrap() {
+	if (name != "") {
 		std::cout << "<< ClapTrap \"" << name << "\" destroyed >>" << std::endl;
-	}
-	else
-	{
+	} else {
 		std::cout << "<<< ClapTrap destroyed >>>" << std::endl;
 	}
 }
 
-ClapTrap::ClapTrap(const ClapTrap &target)
-{
+ClapTrap::ClapTrap(const ClapTrap &target) {
 	this->name = target.name;
 	this->hitPoint = target.hitPoint;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &target)
-{
+ClapTrap &ClapTrap::operator=(const ClapTrap &target) {
 	this->name = target.name;
 	this->hitPoint = target.hitPoint;
 	this->energyPoint = target.energyPoint;
@@ -57,8 +49,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &target)
 	return (*this);
 }
 
-void ClapTrap::attack(std::string const &target)
-{
+void ClapTrap::attack(std::string const &target) {
 	if (hitPoint <= 0)
 	{
 		printName();
@@ -77,8 +68,7 @@ void ClapTrap::attack(std::string const &target)
 	std::cout << "attacks " << target << ", causing " << attackDamage << " points of damage! (energyPoint: " << energyPoint << ")" << std::endl;
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
-{
+void ClapTrap::takeDamage(unsigned int amount) {
 	hitPoint -= amount;
 	if (hitPoint < 0)
 		hitPoint = 0;
@@ -86,14 +76,12 @@ void ClapTrap::takeDamage(unsigned int amount)
 	std::cout <<"takes " << amount << " points of damage! (HP: " << hitPoint << ")" << std::endl;
 }
 
-void ClapTrap::beRepaired(unsigned int amount)
-{
+void ClapTrap::beRepaired(unsigned int amount) {
 	hitPoint += amount;
 	printName();
 	std::cout << "repaired with " << amount << ", " << "(HP: " << hitPoint << ")" << std::endl;
 }
 
-void ClapTrap::printName()
-{
+void ClapTrap::printName() {
 	std::cout << "< ClapTrap \"" << name << "\"> ";
 }

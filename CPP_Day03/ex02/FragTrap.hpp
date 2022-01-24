@@ -6,36 +6,29 @@
 /*   By: brattles <brattles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 11:16:42 by brattles          #+#    #+#             */
-/*   Updated: 2022/01/23 11:19:32 by brattles         ###   ########.fr       */
+/*   Updated: 2022/01/23 20:17:10 by brattles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef FRAGTRAP_HPP_
-# define FRAGTRAP_HPP_
+#ifndef FRAGTRAP_H_
+# define FRAGTRAP_H_
 
 # include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
 		FragTrap();
 		FragTrap(std::string name);
+		FragTrap(const FragTrap &target);
+		FragTrap &operator= (const FragTrap &target);
 		~FragTrap();
+
 		void highFivesGuys();
-		void printStat();
-		void printName();
-
-		void attack(std::string const &target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-
-
+		
 	private:
 		std::string name;
-		int hitPoint;
-		unsigned int energyPoint;
-		unsigned int attackDamage;
 };
 
 #endif

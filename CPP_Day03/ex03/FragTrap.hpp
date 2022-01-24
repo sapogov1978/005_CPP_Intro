@@ -16,32 +16,19 @@
 
 # include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
 		FragTrap();
 		FragTrap(std::string name);
-		~FragTrap();
 		FragTrap(const FragTrap &target);
 		FragTrap &operator= (const FragTrap &target);
+		virtual ~FragTrap();
 
 		void highFivesGuys();
-		void printName();
-
-		void attack(std::string const &target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-
-		int getHp(void) const;
-		unsigned int getEp(void) const;
-		unsigned int getAd(void) const;
-		virtual std::string GetClapName() const;
-
-	private:
+		
+	protected:
 		std::string name;
-		int hitPoint;
-		unsigned int energyPoint;
-		unsigned int attackDamage;
 };
 
 #endif

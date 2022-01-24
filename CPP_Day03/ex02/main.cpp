@@ -14,12 +14,12 @@
 
 int main(void)
 {
-	FragTrap st("R2-D2");
+	FragTrap FragTrap("R2-D2");
 
-	st.attack("C-3PO");
-	st.takeDamage(80);
-	st.beRepaired(30);
-
-	st.highFivesGuys();
+	FragTrap.attack("C-3PO");
+	FragTrap.takeDamage(80);
+	FragTrap.beRepaired(30);
+	FragTrap.highFivesGuys();
+	
 	return (0);
 }

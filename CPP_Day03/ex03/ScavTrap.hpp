@@ -16,30 +16,21 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public:
 		ScavTrap();
 		ScavTrap(std::string name);
-		~ScavTrap();
+		virtual ~ScavTrap();
+		ScavTrap(const ScavTrap &target);
+		ScavTrap &operator= (const ScavTrap &target);
 
 		void guardGate();
-		void printStat();
-		void printName();
+		
+		virtual void attack(std::string const &target);
 
-		void attack(std::string const &target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
-
-		int getHp(void) const;
-		unsigned int getEp(void) const;
-		unsigned int getAd(void) const;
-
-	private:
+	protected:
 		std::string name;
-		int hitPoint;
-		unsigned int energyPoint;
-		unsigned int attackDamage;
 };
 
 #endif

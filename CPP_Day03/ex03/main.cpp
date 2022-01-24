@@ -15,6 +15,11 @@
 int main(void)
 {
 	DiamondTrap DiamondTrap("Jedi Knights");
+
 	DiamondTrap.whoAmI();
+	DiamondTrap.attack("------AAAAAAAA------");
+	DiamondTrap.guardGate();
+	DiamondTrap.highFivesGuys();
+	
 	return (0);
 }

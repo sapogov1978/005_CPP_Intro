@@ -11,10 +11,9 @@
 /* ************************************************************************** */
 
 #pragma once
-#ifndef DIAMONDTRAP_HPP_
-# define DIAMONDTRAP_HPP_
+#ifndef DIAMONDTRAP_H_
+# define DIAMONDTRAP_H_
 
-# include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
 
@@ -24,20 +23,13 @@ class DiamondTrap : virtual public ScavTrap, virtual public FragTrap
 		DiamondTrap();
 		DiamondTrap(std::string name);
 		DiamondTrap(const DiamondTrap &target);
-		~DiamondTrap();
 		DiamondTrap &operator= (const DiamondTrap &target);
-
-		int getHp(void) const;
-		unsigned int getEp(void) const;
-		unsigned int getAd(void) const;
+		~DiamondTrap();
 
 		void whoAmI();
 
 	private:
 		std::string name;
-		int hitPoint;
-		unsigned int energyPoint;
-		unsigned int attackDamage;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: brattles <brattles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 17:59:43 by brattles          #+#    #+#             */
-/*   Updated: 2022/01/22 20:41:02 by brattles         ###   ########.fr       */
+/*   Updated: 2022/01/23 20:15:58 by brattles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ public :
 	ClapTrap(std::string const name);
 	ClapTrap(const ClapTrap &target);
 	ClapTrap &operator= (const ClapTrap &target);
-	~ClapTrap();
+	virtual ~ClapTrap();
 
 	void attack(std::string const &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 
-private:
+protected:
 	std::string name;
 	int hitPoint;
 	unsigned int energyPoint;
